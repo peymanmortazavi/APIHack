@@ -1,0 +1,14 @@
+{
+  "name": "twitter-oauth",
+  "version": "1.0.0",
+  "description": "Twitter API",
+  "main": "app.js",
+  "author": "Peyman MO",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.11.2",
+    "oauth": "*",
+    "querystring": "*",
+    "cors": "*"
+  }
+}

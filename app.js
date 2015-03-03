@@ -32,10 +32,13 @@ app.get("/*", function(req, res) {
     try{
 
       client.get(req.url, null, function(error, tweets, response){
-        if (!error) {
+        if (!error) 
+        {
           res.send(tweets);
         }
-        res.send("you have error dude");
+        else{
+          res.send("you have error dude");
+        }
         console.log(error);
       });
 

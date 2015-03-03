@@ -6,6 +6,7 @@ var request = require('request');
 var OAuth   = require('oauth-1.0a');
 
 // blah start
+app.use(cors());
 
 var Twitter = require('twitter');
  
@@ -28,13 +29,21 @@ var server = app.listen(app.get('port'), function() {
 
 app.get("/*", function(req, res) {
 
-    //var params = {screen_name: 'nodejs'};
-    client.get(req.url, null, function(error, tweets, response){
-      if (!error) {
-        console.log(tweets);
-        res.send(tweets);
-      }
-    });
+    try{
+
+      client.get(req.url, null, function(error, tweets, response){
+        if (!error) {
+          console.log(tweets);
+          res.send(tweets);
+        }
+      });
+
+    }
+    catch (ex){
+
+      res.send("go do it your self ! ;)");
+
+    }
 
 });
 
@@ -75,8 +84,6 @@ app.get("/*", function(req, res) {
 
 //   return this;
 // };
-
-// app.use(cors());
 
 // var base_url = "http://api.yelp.com";
 

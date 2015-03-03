@@ -11,10 +11,10 @@ app.use(cors());
 var Twitter = require('twitter');
  
 var client = new Twitter({
-  consumer_key: 'kGh5v4RkGZWZURb1lxGwxh6LJ',
-  consumer_secret: 'hvjb1XIhNX9wosCzgm99At93u2jubMXq8A5VcG4bwaP9ZXGaDX',
-  access_token_key: '299587768-eEBXYYeeYBrg5XEv5uVNvmNcXRU11TSaP7zddtsY',
-  access_token_secret: 'ngBAWJQtDphXWq1j2Phnn5xwiDtKo5HHkL2lIxifNmnUM'
+  consumer_key: 'TyZHKIeq9nlN7f5fnNMsgVfXX',
+  consumer_secret: 'x2Ugi9oBdDDTVYgSLF4MxGkDu5SIRlmy0sECntq5nikqvGH1Fu',
+  access_token_key: '1083453457-6NSDKI5dM09XIkeGKcL7gePLBiPYBzkNqkKd4RE',
+  access_token_secret: 'HGHjeoB2TKMKpSYGl4vdGHIxIbiVqBk3po55TbVGurJJQ'
 });
 
 app.set('port', (process.env.PORT || 3000))

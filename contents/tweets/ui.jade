@@ -2,33 +2,16 @@ h5 Search
 .row
     .col-md-8
         .form-group.form-group-default
-            label Name            
+            label Phrase            
             input#name.form-control(type='text', required='')                
     .col-md-4                         
-        button.btn.btn-primary(onClick='tweets.searchByName($("#name").val())') Search
-
-
-.row
-    .col-md-8
-        .form-group.form-group-default
-            label Zipcode            
-            input#zipcode.form-control(type='text', required='')                
-    .col-md-4                         
-        button.btn.btn-primary(onClick='tweets.searchByZipcode($("#zipcode").val())') Search
-
-.row
-    .col-md-8
-        .form-group.form-group-default
-            label Chamber            
-            input#chamber.form-control(type='text', required='')                
-    .col-md-4                         
-        button.btn.btn-primary(onClick='tweets.searchByChamber($("#chamber").val())') Search
+        button.btn.btn-primary(onClick='tweets.searchByPhrase($("#phase").val())') Search
 
 
 
-h5 Chambers
+h5 Cool Phrases
 ul
     li
-        a(href="#" onClick='tweets.searchByChamber("senate")') Senate
+        a(href="#" onClick='tweets.searchByPhrase("shredding the gnar")') Shredding the Gnar!
     li
-        a(href="#" onClick='tweets.searchByChamber("house")') House
+        a(href="#" onClick='tweets.searchByPhrase("cool story bro")') Cool Story Bro!

@@ -4,20 +4,17 @@ var tweets = {
 
         var phrase = phrase || 'lazy'
 
-        $.get("https://congress.api.sunlightfoundation.com/legislators/locate?zip=" + phrase, apikey, function(data) {
-
-            console.log('got ' + data)
-            if (data.results){
+        $.get("http://apitwitterhack.herokuapp.com/search/tweets.json?q=\"" + phrase +"\"", function(data) {
+            data = data.statuses
 
                 $.get("/twitter/tweets/list.jade", function(template) {
                     var html = jade.render(template, {
                         data: data
                     })
-                    console.log(html)
                     $("#list").html(html)
                 })
 
-            }
+
 
         })
 
@@ -31,7 +28,7 @@ var tweets = {
         })
 
         // default search results
-        legislators.searchByChamber('senate')
+        tweets.searchByPhrase('Twitter')
 
     }
 

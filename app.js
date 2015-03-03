@@ -33,9 +33,9 @@ app.get("/*", function(req, res) {
 
       client.get(req.url, null, function(error, tweets, response){
         if (!error) {
-          console.log(tweets);
           res.send(tweets);
         }
+        res.send(error);
       });
 
     }

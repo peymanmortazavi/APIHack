@@ -37,7 +37,7 @@ app.get("/*", function(req, res) {
           res.send(tweets);
         }
         else{
-          res.send("you have error dude");
+          res.send(error);
         }
         console.log(error);
       });

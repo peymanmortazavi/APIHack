@@ -1,8 +1,8 @@
 h3 Results
 each item in data.results
 	pre(style='white-space:pre;')
-		| Country: #{item.name}
-		| Country Code: #{item.url}
+		| Country: #{item.country}
+		| Country Code: #{item.countryCode}
 
 
 //h3 Raw data

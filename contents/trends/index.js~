@@ -11,7 +11,7 @@ var trends = {
 
         })
         .complete(function(data) {
-            console.log('got ' + data)
+            //console.log('got ' + data)
             if (data.results){
             
                 $.get("/twitter/trends/list.jade", function(template) {

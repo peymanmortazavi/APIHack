@@ -5,36 +5,59 @@ var cors = require("cors");
 var request = require('request');
 var OAuth   = require('oauth-1.0a');
 
-var oauth = OAuth({
-    consumer: {
-        public: 'kGh5v4RkGZWZURb1lxGwxh6LJ',
-        secret: 'hvjb1XIhNX9wosCzgm99At93u2jubMXq8A5VcG4bwaP9ZXGaDX'
-    },
-    signature_method: 'HMAC-SHA1'
+// blah start
+
+var Twitter = require('twitter');
+ 
+var client = new Twitter({
+  consumer_key: 'kGh5v4RkGZWZURb1lxGwxh6LJ',
+  consumer_secret: 'hvjb1XIhNX9wosCzgm99At93u2jubMXq8A5VcG4bwaP9ZXGaDX',
+  access_token_key: '299587768-eEBXYYeeYBrg5XEv5uVNvmNcXRU11TSaP7zddtsY',
+  access_token_secret: 'ngBAWJQtDphXWq1j2Phnn5xwiDtKo5HHkL2lIxifNmnUM'
 });
 
-var request_data = {
-    url: 'https://api.twitter.com/1/statuses/update.json?include_entities=true',
-    method: 'POST',
-    data: {
-        status: 'Hello Ladies + Gentlemen, a signed OAuth request!'
-    }
-};
+app.set('port', (process.env.PORT || 3000))
 
-var token = {
-    public: '299587768-eEBXYYeeYBrg5XEv5uVNvmNcXRU11TSaP7zddtsY',
-    secret: 'ngBAWJQtDphXWq1j2Phnn5xwiDtKo5HHkL2lIxifNmnUM'
-};
+var server = app.listen(app.get('port'), function() {
 
-request({
-    url: request_data.url,
-    method: request_data.method,
-    form: oauth.authorize(request_data, token)
-}, function(error, response, body) {
-    
-    console.log("BUDDY is: "+ body);
+    var host = server.address().address
+    var port = server.address().port
+    console.log('App listening at http://%s:%s', host, port)
+})
+
+
+app.get("/*", function(req, res) {
+
+    //var params = {screen_name: 'nodejs'};
+    client.get(req.url, null, function(error, tweets, response){
+      if (!error) {
+        console.log(tweets);
+        res.send(tweets);
+      }
+    });
 
 });
+
+// blah end
+
+// var oauth = OAuth({
+//     consumer: {
+//         public: 'kGh5v4RkGZWZURb1lxGwxh6LJ',
+//         secret: 'hvjb1XIhNX9wosCzgm99At93u2jubMXq8A5VcG4bwaP9ZXGaDX'
+//     },
+//     signature_method: 'HMAC-SHA1'
+// });
+
+// var request_data = {
+//     url: 'https://api.twitter.com/1.1/search/tweets.json?q=%40twitterapi',
+//     method: 'GET'
+// };
+
+// var token = {
+//     public: '299587768-eEBXYYeeYBrg5XEv5uVNvmNcXRU11TSaP7zddtsY',
+//     secret: 'ngBAWJQtDphXWq1j2Phnn5xwiDtKo5HHkL2lIxifNmnUM'
+// };
+
 
 // var Client = function(oauth_config) {
 //   this.oauthToken = oauth_config.token;
@@ -78,29 +101,5 @@ request({
 // 	consumer_secret: "PwKdCWD67xBDjRlT2SpEYEnzuYs"
 
 // };
-
-// app.set('port', (process.env.PORT || 3000))
-
-// var server = app.listen(app.get('port'), function() {
-
-//     var host = server.address().address
-//     var port = server.address().port
-//     console.log('App listening at http://%s:%s', host, port)
-// })
-
 // var yelpClient = new Client(authentication);
 
-// app.get("/*", function(req, res) {
-	
-// 	try
-// 	{
-
-// 		yelpClient.get(req.url, null, function(error, data, response){
-// 			res.send(data);
-// 		});
-
-// 	}
-// 	catch(err) {
-// 		console.log("a");
-// 	}
-// });

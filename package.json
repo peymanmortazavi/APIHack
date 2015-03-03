@@ -9,6 +9,8 @@
     "express": "^4.11.2",
     "oauth-1.0a": "*",
     "querystring": "*",
-    "cors": "*"
+    "cors": "*",
+    "request": "*",
+    "twitter": "*"
   }
 }

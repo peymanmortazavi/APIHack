@@ -1,16 +1,18 @@
 var users = {
 
-    searchByZipcode: function(zipcode) {
+    searchByName: function(name) {
 
         // search legistalors by zipcode (default to Boulder, 80301)
         // ref: https://sunlightlabs.github.io/congress/legislators.html
 
-        var zipcode = zipcode || '80301'
 
-        $.get("https://congress.api.sunlightfoundation.com/legislators/locate?zip=" + zipcode, apikey, function(data) {
+        $.get("https://apitwitterhack.herokuapp.com/users/search.json?q="+name+"&page=1&count=15", function(data) {
 
+           // var items=JSON.parse(data)
+          // var item=jQuery.parseJSON(data)
             console.log('got ' + data)
-            if (data.results){
+
+            if (data){
 
                 $.get("/twitter/users/list.jade", function(template) {
                     var html = jade.render(template, {
@@ -26,42 +28,7 @@ var users = {
 
     },
 
-    searchByName: function(name) {
 
-        // search legistalors by name
-        // ref: https://sunlightlabs.github.io/congress/legislators.html
-
-        $.get("https://congress.api.sunlightfoundation.com/legislators?query=" + name, apikey, function(data) {
-
-            $.get("/twitter/users/list.jade", function(template) {
-                var html = jade.render(template, {
-                    data: data
-                })
-                $("#list").html(html)
-            })
-
-        })
-
-    },
-
-
-    searchByChamber: function(chamber) {
-
-        // search legistalors by chamber 
-        // ref: https://sunlightlabs.github.io/congress/legislators.html
-
-        $.get("https://congress.api.sunlightfoundation.com/legislators?chamber=" + chamber, apikey, function(data) {
-
-            $.get("/twitter/users/list.jade", function(template) {
-                var html = jade.render(template, {
-                    data: data
-                })
-                $("#list").html(html)
-            })
-
-        })
-
-    },    
 
     load: function() {
 
@@ -71,7 +38,7 @@ var users = {
         })
 
         // default search results
-        legislators.searchByChamber('senate')
+        users.searchByName('Twitter%20API')
 
     }
 

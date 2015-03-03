@@ -7,7 +7,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.11.2",
-    "oauth": "*",
+    "oauth-1.0a": "*",
     "querystring": "*",
     "cors": "*"
   }

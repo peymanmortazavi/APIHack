@@ -36,6 +36,7 @@ app.get("/*", function(req, res) {
           res.send(tweets);
         }
         res.send(error);
+        console.log(error);
       });
 
     }

@@ -7,8 +7,8 @@ var OAuth   = require('oauth-1.0a');
 
 var oauth = OAuth({
     consumer: {
-        public: 'xvz1evFS4wEEPTGEFPHBog',
-        secret: 'kAcSOqF21Fu85e7zjz7ZN2U4ZRhfV3WpwPAoE3Z7kBw'
+        public: 'kGh5v4RkGZWZURb1lxGwxh6LJ',
+        secret: 'hvjb1XIhNX9wosCzgm99At93u2jubMXq8A5VcG4bwaP9ZXGaDX'
     },
     signature_method: 'HMAC-SHA1'
 });
@@ -22,8 +22,8 @@ var request_data = {
 };
 
 var token = {
-    public: '370773112-GmHxMAgYyLbNEtIKZeRNFsMKPR9EyMZeS9weJAEb',
-    secret: 'LswwdoUaIvS8ltyTt5jkRh4J50vUPVVHtR2YPi5kE'
+    public: '299587768-eEBXYYeeYBrg5XEv5uVNvmNcXRU11TSaP7zddtsY',
+    secret: 'ngBAWJQtDphXWq1j2Phnn5xwiDtKo5HHkL2lIxifNmnUM'
 };
 
 request({

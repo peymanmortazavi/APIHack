@@ -1,8 +1,9 @@
 var tweets = {
 
-    searchByPhrase: function(phrase) {
+    searchByPhrase: function(inputPhrase) {
 
-        var phrase = phrase || 'lazy'
+        var phrase = inputPhrase || 'lazy'
+        debugger
 
         $.get("http://apitwitterhack.herokuapp.com/search/tweets.json?q=\"" + phrase +"\"", function(data) {
             data = data.statuses
